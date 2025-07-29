@@ -10,7 +10,11 @@ import {
   ThemedView,
 } from "@shared/components";
 
+import { useHomeState } from "@features/Home";
+
 export default function ExploreScreen() {
+  const { counter } = useHomeState();
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
@@ -25,6 +29,9 @@ export default function ExploreScreen() {
     >
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Explore</ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.titleContainer}>
+        <ThemedText type="subtitle">Counter From Home: {counter}</ThemedText>
       </ThemedView>
       <ThemedText>
         This app includes example code to help you get started.
