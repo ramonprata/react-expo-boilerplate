@@ -6,8 +6,9 @@ export class HomeRepository implements IHomeRepository {
     // Simulate fetching data from an API or database
     // in a real application, this would be replaced with an actual data fetching logic
     // For example, using fetch or axios to get data from a server
-    return new Promise<IStep[]>((resolve) => {
+    return new Promise<IStep[]>((resolve, reject) => {
       setTimeout(() => {
+        // reject(new Error("Failed to fetch steps")); // Simulate an error
         resolve([
           {
             title: "Step 1: Try it",
