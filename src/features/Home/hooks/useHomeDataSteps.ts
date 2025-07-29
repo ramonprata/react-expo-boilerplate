@@ -5,6 +5,7 @@ import { IStep } from "../types/IStep";
 export const useHomeDataSteps = () => {
   // This hook can be used to manage home steps logic
   // For example, fetching steps from a repository or managing state
+  // use react-query or similar for data fetching in a real application
 
   const [steps, setSteps] = useState<IStep[]>([]);
   const [loading, setLoading] = useState(true);

@@ -4,6 +4,8 @@ import { IStep } from "../types/IStep";
 export class HomeRepository implements IHomeRepository {
   async fetchHomeSteps(): Promise<IStep[]> {
     // Simulate fetching data from an API or database
+    // in a real application, this would be replaced with an actual data fetching logic
+    // For example, using fetch or axios to get data from a server
     return new Promise<IStep[]>((resolve) => {
       setTimeout(() => {
         resolve([
