@@ -22,7 +22,7 @@ export default function Steps() {
     );
   }
 
-  return steps?.map((step, index) => (
+  return steps.map((step, index) => (
     <ThemedView key={index} style={styles.stepContainer}>
       <ThemedText type="subtitle">{step.title}</ThemedText>
       <ThemedText>{step.description}</ThemedText>

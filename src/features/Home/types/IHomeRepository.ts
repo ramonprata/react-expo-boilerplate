@@ -1,5 +1,5 @@
-import { IStep } from "./IStep";
+import { IStepDto } from "./IStep";
 
 export interface IHomeRepository {
-  fetchHomeSteps(): Promise<IStep[]>;
+  fetchHomeSteps(): Promise<IStepDto[]>;
 }

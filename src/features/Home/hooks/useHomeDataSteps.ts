@@ -9,7 +9,7 @@ export const useHomeDataSteps = () => {
   });
 
   return {
-    steps: data,
+    steps: data ?? [],
     loading: isLoading,
     error: error ? error.message : null,
   };
