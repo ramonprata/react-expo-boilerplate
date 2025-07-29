@@ -10,10 +10,11 @@ import {
   ThemedView,
 } from "@shared/components";
 
-import { useHomeSlice } from "@features/Home";
+import { useHomeState } from "@features/Home";
 
 export default function ExploreScreen() {
-  const { counter } = useHomeSlice();
+  const { counter } = useHomeState();
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
