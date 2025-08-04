@@ -2,10 +2,12 @@ import { SetCallback } from "@shared/store";
 
 export interface IHomeInitialState {
   counter: number;
+  otherProperty?: string; // Add other properties as needed
 }
 
 export const initialState: IHomeInitialState = {
   counter: 0,
+  otherProperty: "Initial value",
 };
 
 const actions = (set: SetCallback<IHomeInitialState>) => ({

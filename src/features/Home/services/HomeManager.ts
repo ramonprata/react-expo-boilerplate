@@ -5,13 +5,13 @@ import { TMappers } from "../utils/mappers";
 
 export class HomeManager {
   private repository: IHomeRepository;
-  private logger: ILogger;
+  private logger?: ILogger;
   private mappers: TMappers;
 
   constructor(
     _repository: IHomeRepository,
-    _logger: ILogger,
-    _mappers: TMappers
+    _mappers: TMappers,
+    _logger?: ILogger
   ) {
     this.repository = _repository;
     this.logger = _logger;
@@ -21,7 +21,7 @@ export class HomeManager {
   async getHomeSteps(): Promise<IStepView[]> {
     try {
       const data = await this.repository.fetchHomeSteps();
-      return this.mappers?.getHomeSteps(data);
+      return this.mappers.getHomeSteps(data);
     } catch (error) {
       this.logger?.error("Failed to fetch home steps", error);
       throw new Error("Custom error message...");

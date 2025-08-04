@@ -1,7 +1,9 @@
 import { IStepDto, IStepView } from "../types/IStep";
 
 export const trasnformDataSteps = (steps: IStepDto[]): IStepView[] => {
-  // use to perform some complex transform IStepDto => IStepView
+  if (!steps || steps.length === 0) {
+    return [];
+  }
 
   return steps.map((step) => ({
     title: step.title,
