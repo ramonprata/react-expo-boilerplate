@@ -1,33 +1,14 @@
-import { useSliceSetter, useSliceState } from "@shared/hooks";
+import { useStore } from "@/src/shared/store";
 import { IHomeInitialState, THomeActions } from "../store/homeSliceStore";
 
-export const useHomeActions = () => {
-  const incrementCounter = useSliceSetter<THomeActions, "incrementCounter">(
-    "incrementCounter"
-  );
-
-  const resetHomeSlice = useSliceSetter<THomeActions, "resetHomeSlice">(
-    "resetHomeSlice"
-  );
-
-  return {
-    incrementCounter,
-    resetHomeSlice,
-  };
+export const useHomeAction = <K extends keyof THomeActions>(actionName: K) => {
+  const action = useStore((state) => state[actionName]);
+  return action;
 };
 
-export const useHomeState = () => {
-  const counter = useSliceState<IHomeInitialState, "counter">("counter");
-  return { counter };
-};
-
-export const useHomeSlice = () => {
-  const { incrementCounter, resetHomeSlice } = useHomeActions();
-  const { counter } = useHomeState();
-
-  return {
-    incrementCounter,
-    resetHomeSlice,
-    counter,
-  };
+export const useHomeState = <K extends keyof IHomeInitialState>(
+  stateName: K
+) => {
+  const state = useStore((state) => state[stateName]);
+  return state;
 };

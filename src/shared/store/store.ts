@@ -1,6 +1,5 @@
-import { useStore as zustandUseStore } from "zustand";
+import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import { createStore } from "zustand/vanilla";
 
 import homeSliceStore, {
   IHomeInitialState,
@@ -27,15 +26,14 @@ export const slices = {
   // added other slices here as needed: exploreSliceStore: exploreSliceStore.slice,
 };
 
-export type Store = ReturnType<(typeof slices)["homeSliceStore"]>;
+export type Store = ReturnType<(typeof slices)["homeSliceStore"]> & // combine with other slices as needed: & ReturnType<(typeof slices)["homeSliceStore"]>
+  ReturnType<(typeof slices)["exploreSliceStore"]>;
 //  combine with other slices as needed: &  ReturnType<(typeof slices)["exploreSliceStore"]>
 
-export const vanillaStore = createStore(
+export const useStore = create(
   immer<Store>((set) => ({
     ...homeSliceStore.slice(set as SetCallback<IHomeInitialState>),
     ...exploreSlice.slice(set as SetCallback<IExploreInitialState>),
     // add other slices here as needed: // ...exploreSliceStore.slice(set as SetCallback<IExploreInitialState>)
   }))
 );
-
-export const useStore = zustandUseStore;

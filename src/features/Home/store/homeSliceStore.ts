@@ -12,7 +12,7 @@ export const initialState: IHomeInitialState = {
 
 const actions = (set: SetCallback<IHomeInitialState>) => ({
   incrementCounter: () =>
-    set((state: IHomeInitialState) => {
+    set((state) => {
       state.counter += 1;
     }),
 

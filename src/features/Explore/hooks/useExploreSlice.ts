@@ -1,16 +1,16 @@
-import { useSliceSetter, useSliceState } from "@shared/hooks";
+import { useSliceAction, useSliceState } from "@shared/hooks";
 import {
   IExploreInitialState,
   TExploreActions,
 } from "../store/exploreSliceStore";
 
 export const useExploreActions = () => {
-  const incrementExploreCounter = useSliceSetter<
+  const incrementExploreCounter = useSliceAction<
     TExploreActions,
     "incrementExploreCounter"
   >("incrementExploreCounter");
 
-  const resetExploreSlice = useSliceSetter<
+  const resetExploreSlice = useSliceAction<
     TExploreActions,
     "resetExploreSlice"
   >("resetExploreSlice");

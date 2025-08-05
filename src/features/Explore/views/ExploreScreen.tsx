@@ -13,7 +13,7 @@ import {
 import { useHomeState } from "@features/Home";
 
 export default function ExploreScreen() {
-  const { counter } = useHomeState();
+  const counter = useHomeState("counter");
 
   return (
     <ParallaxScrollView

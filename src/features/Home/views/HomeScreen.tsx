@@ -1,17 +1,19 @@
-import { Button, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
 import { HelloWave, ParallaxScrollView, ThemedText } from "@shared/components";
-import { useHomeSlice } from "../hooks/useHomeSlice";
+import { useHomeState } from "../hooks/useHomeSlice";
+import ChildHomeScreen from "./ChildHomeScreen";
 import Steps from "./Steps";
-import {
-  InfoContainer,
-  ReactLogo,
-  TitleContainer,
-  ZustandContainer,
-} from "./styles/HomeScreen.styled";
+import { ReactLogo, TitleContainer } from "./styles/HomeScreen.styled";
 
 export default function HomeScreen() {
-  const { incrementCounter, resetHomeSlice, counter } = useHomeSlice();
+  const otherProperty = useHomeState("otherProperty");
+
+  console.log(
+    "Ramon - HomeScreen - line 16 - value",
+    Date.now(),
+    otherProperty
+  );
 
   return (
     <ParallaxScrollView
@@ -27,23 +29,7 @@ export default function HomeScreen() {
 
       <Steps />
 
-      <ZustandContainer>
-        <ThemedText>Demo Zustand</ThemedText>
-        <InfoContainer>
-          <InfoContainer>
-            <ThemedText type="subtitle">Counter: </ThemedText>
-          </InfoContainer>
-          <ThemedText type="title" style={{ textAlign: "center" }}>
-            {counter}
-          </ThemedText>
-        </InfoContainer>
-        <InfoContainer>
-          <Button title="Increment counter" onPress={incrementCounter} />
-        </InfoContainer>
-        <InfoContainer>
-          <Button title="Reset counter" onPress={resetHomeSlice} />
-        </InfoContainer>
-      </ZustandContainer>
+      <ChildHomeScreen />
     </ParallaxScrollView>
   );
 }

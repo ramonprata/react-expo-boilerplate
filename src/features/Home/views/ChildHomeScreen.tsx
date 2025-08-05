@@ -1,14 +1,12 @@
 import { ThemedText } from "@shared/components";
 import { Button } from "react-native";
-import { useHomeSlice } from "../hooks/useHomeSlice";
+import { useHomeAction, useHomeState } from "../hooks/useHomeSlice";
 import { InfoContainer, ZustandContainer } from "./styles/HomeScreen.styled";
 
 export default function ChildHomeScreen() {
-  const { incrementCounter, resetHomeSlice, counter } = useHomeSlice();
-
-  // const incrementCounter = useHomeSlice((state) => state.increment);
-  // const counter = useHomeSlice((state) => state.counterHome);
-
+  const counter = useHomeState("counter");
+  const incrementCounter = useHomeAction("incrementCounter");
+  const resetHomeSlice = useHomeAction("resetHomeSlice");
   return (
     <>
       <ZustandContainer>
