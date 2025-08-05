@@ -9,12 +9,6 @@ import { ReactLogo, TitleContainer } from "./styles/HomeScreen.styled";
 export default function HomeScreen() {
   const otherProperty = useHomeState("otherProperty");
 
-  console.log(
-    "Ramon - HomeScreen - line 16 - value",
-    Date.now(),
-    otherProperty
-  );
-
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
